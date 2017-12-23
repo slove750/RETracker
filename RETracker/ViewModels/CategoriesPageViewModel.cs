@@ -81,7 +81,7 @@ namespace RETracker.ViewModels
 
         private async Task<IList<Category>> GetCategories()
         {
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest("/api/category", Method.GET);
             var response = await client.ExecuteGetTaskAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)
@@ -94,7 +94,7 @@ namespace RETracker.ViewModels
 
         private async Task<IList<SubCategory>> GetSubCategories(int catId)
         {
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest($"/api/subcategory/category/{catId}", Method.GET);
             var response = await client.ExecuteGetTaskAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)

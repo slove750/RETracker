@@ -150,7 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RETracker\RETracker.csproj">
-      <Project>{0244ECA9-2BE4-408C-9D63-CFBB38DF9156}</Project>
+      <Project>{171E01BB-834F-4900-A7E4-28492AD3E3BA}</Project>
       <Name>RETracker</Name>
     </ProjectReference>
   </ItemGroup>

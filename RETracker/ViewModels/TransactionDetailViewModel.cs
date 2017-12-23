@@ -91,7 +91,7 @@ namespace RETracker.ViewModels
             Debug.WriteLine("GetCats");
             var results = new List<Category>();
 
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest("/api/category", Method.GET);
             var response = await client.ExecuteGetTaskAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)
@@ -108,7 +108,7 @@ namespace RETracker.ViewModels
             Debug.WriteLine("GetSubCats");
             var results = new List<SubCategory>();
 
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest("/api/subcategory", Method.GET);
             var response = await client.ExecuteGetTaskAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)
@@ -130,7 +130,7 @@ namespace RETracker.ViewModels
             Debug.WriteLine("GetProps");
             var results = new List<Property>();
 
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest("/api/property", Method.GET);
             var response = await client.ExecuteGetTaskAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)
@@ -144,7 +144,7 @@ namespace RETracker.ViewModels
 
         private async Task<TransEntry> GetTransaction(TransEntry item)
         {
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest($"/api/transentry/{item.Id}", Method.GET);
             var response = await client.ExecuteGetTaskAsync(request);
             if (response.StatusCode != HttpStatusCode.OK)
@@ -157,7 +157,7 @@ namespace RETracker.ViewModels
 
         private async void SaveTransaction(TransEntry entity)
         {
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest("/api/transentry", Method.POST);
             request.AddJsonBody(entity);
             var response = await client.ExecutePostTaskAsync(request);

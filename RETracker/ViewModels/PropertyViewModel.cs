@@ -67,7 +67,7 @@ namespace RETracker.ViewModels
 
         private async Task<IList<Property>> GetProperties()
         {
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest("/api/property", Method.GET);
             var response = await client.ExecuteGetTaskAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)
@@ -80,7 +80,7 @@ namespace RETracker.ViewModels
 
         private async void SaveProperty(Property entity)
         {
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest("/api/property", Method.POST);
             request.AddJsonBody(entity);
             var response = await client.ExecutePostTaskAsync(request);

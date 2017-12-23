@@ -67,7 +67,7 @@ namespace RETracker.ViewModels
 
         private async Task<IList<TransEntry>> GetTransactions()
         {
-            var client = new RestClient("http://localhost:9000");
+            var client = new RestClient($"http://{Constants.URL}");
             var request = new RestRequest("/api/transentry", Method.GET);
             var response = await client.ExecuteGetTaskAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)
