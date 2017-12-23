@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="RestSharp" Version="106.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\AboutPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TransactionDetailPage.xaml.cs">
+      <DependentUpon>TransactionDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PropertyDetailPage.xaml.cs">
+      <DependentUpon>PropertyDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EntityDetailPage.xaml.cs">
+      <DependentUpon>EntityDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SummaryDetailPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>SummaryDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PropertiesPage.xaml.cs">
+      <DependentUpon>PropertiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CategoriesPage.xaml.cs">
+      <DependentUpon>CategoriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TransactionsPage.xaml.cs">
+      <DependentUpon>TransactionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EntitiesPage.xaml.cs">
+      <DependentUpon>EntitiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SummaryPage.xaml.cs">
+      <DependentUpon>SummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ItemsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MainPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NewItemPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>NewItemPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

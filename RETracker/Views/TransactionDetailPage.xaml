@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="RETracker.Views.TransactionDetailPage"
+		     Title="Transaction Detail">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Property" FontSize="Medium" />
+            <Picker x:Name="pProps" ItemsSource="{Binding Properties}" ItemDisplayBinding="{Binding Street}" />
+            <Label Text="Category" FontSize="Medium" />
+            <Picker x:Name="pCats" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" />
+            <Label Text="Sub Category" FontSize="Medium" />
+            <Picker x:Name="pSubCats" ItemsSource="{Binding SubCategories}" ItemDisplayBinding="{Binding Name}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Date" FontSize="Medium" />
+                <DatePicker x:Name="dDate" Format="MM/dd/yyyy" Date="{Binding Item.EntryDate}" />
+            </StackLayout>
+            <Label Text="Payee" FontSize="Medium" />
+            <Entry Text="{Binding Item.Payee}" FontSize="Small" />
+            <Label Text="Amount" FontSize="Medium" />
+            <Entry Text="{Binding Item.Amount}" FontSize="Small" />
+            <Label Text="Notes" FontSize="Medium" />
+            <Entry Text="{Binding Item.Note}" FontSize="Small" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Clicked="Cancel_Clicked" />
+                <Button Text="Save" Clicked="Save_Clicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

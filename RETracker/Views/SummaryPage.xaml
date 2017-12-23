@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RETracker.Views.SummaryPage"
+              Title="{Binding Title}"
+             x:Name="SummaryPage">
+    <!--
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    -->
+    <ContentPage.Content>
+        <Grid x:Name="grdSummary">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0">
+                <StackLayout Orientation="Horizontal" Margin="3,5,3,0">
+                    <Label Text="Entity" />
+                    <Picker x:Name="cboEntity" WidthRequest="200" />
+                    <Label Text="Property" />
+                    <Picker x:Name="cboProperty" WidthRequest="200" />
+                    <Label Text="Period" />
+                    <Picker x:Name="cboPeriod" WidthRequest="200" />
+                </StackLayout>
+                <BoxView HeightRequest="2" BackgroundColor="Black" />
+            </StackLayout>
+            <StackLayout Grid.Row="1">
+                <ListView x:Name="ItemsListView" 
+                    ItemsSource="{Binding Items}"
+                    VerticalOptions="FillAndExpand"
+                     HasUnevenRows="true"
+                     RefreshCommand="{Binding LoadItemsCommand}"
+                     IsPullToRefreshEnabled="true"
+                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                     CachingStrategy="RecycleElement"
+                     ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Text}" 
+                           LineBreakMode="NoWrap" 
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="16" />
+                                    <Label Text="{Binding Description}" 
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
